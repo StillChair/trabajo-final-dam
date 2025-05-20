@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c13mkx8x4nu45"]
+
+[ext_resource type="Theme" uid="uid://couwr1of1iw53" path="res://Resources/uitheme.tres" id="1_j3n56"]
+[ext_resource type="Script" uid="uid://c3spno5pyrnub" path="res://Code/Menus/level_button_instance.gd" id="2_1xjn1"]
+
+[node name="Button" type="Button"]
+offset_right = 94.0
+offset_bottom = 96.0
+theme = ExtResource("1_j3n56")
+text = "level_btn"
+script = ExtResource("2_1xjn1")

@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://ui27el0qdewo"]
+
+[ext_resource type="Script" uid="uid://jekj3qvdlwma" path="res://Code/Menus/level_select.gd" id="1_37jrt"]
+[ext_resource type="Theme" uid="uid://couwr1of1iw53" path="res://Resources/uitheme.tres" id="1_h8yer"]
+[ext_resource type="Script" uid="uid://dfo70dasqdyjj" path="res://Code/Player/player_cur.gd" id="2_sis06"]
+[ext_resource type="Texture2D" uid="uid://d1qluayhm881e" path="res://Sprites/Player/Mr.Cursor_Soul.png" id="3_h8yer"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s7id"]
+atlas = ExtResource("3_h8yer")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lth0"]
+atlas = ExtResource("3_h8yer")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8wugl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lth0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hihw3"]
+radius = 5.0
+
+[node name="level_select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h8yer")
+script = ExtResource("1_37jrt")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 1120.0
+offset_bottom = 616.0
+
+[node name="HFlowContainer" type="HFlowContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="player_cur" type="Node2D" parent="CanvasLayer"]
+top_level = true
+position = Vector2(-32, -32)
+script = ExtResource("2_sis06")
+
+[node name="cur_soul_sprite" type="AnimatedSprite2D" parent="CanvasLayer/player_cur"]
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_8wugl")
+
+[node name="cur_interaction_area" type="Area2D" parent="CanvasLayer/player_cur"]
+
+[node name="cur_interaction_col" type="CollisionShape2D" parent="CanvasLayer/player_cur/cur_interaction_area"]
+position = Vector2(5, 11)
+shape = SubResource("CircleShape2D_hihw3")

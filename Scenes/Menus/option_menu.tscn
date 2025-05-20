@@ -1,0 +1,389 @@
+[gd_scene load_steps=19 format=3 uid="uid://bg2s7ipu0tjo"]
+
+[ext_resource type="Texture2D" uid="uid://bby3bciial160" path="res://Sprites/window/window_fat.png" id="1_40rol"]
+[ext_resource type="Script" uid="uid://dnxwr3gxxbwuc" path="res://Code/Menus/option_menu.gd" id="1_uk6kx"]
+[ext_resource type="Texture2D" uid="uid://dhjq0lkmrtn0t" path="res://Sprites/window/Xbutton_pressed.png" id="2_uk6kx"]
+[ext_resource type="Texture2D" uid="uid://c3infx8b60r7t" path="res://Sprites/window/Xbutton.png" id="3_r7mum"]
+[ext_resource type="Script" uid="uid://dfo70dasqdyjj" path="res://Code/Player/player_cur.gd" id="5_qmrg5"]
+[ext_resource type="Texture2D" uid="uid://d1qluayhm881e" path="res://Sprites/Player/Mr.Cursor_Soul.png" id="6_imsrs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wwsa2"]
+texture = ExtResource("2_uk6kx")
+region_rect = Rect2(8, 9, 16, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jsrd8"]
+texture = ExtResource("3_r7mum")
+region_rect = Rect2(8, 9, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_158mb"]
+atlas = ExtResource("3_r7mum")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwsa2"]
+atlas = ExtResource("2_uk6kx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jsrd8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_158mb")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwsa2")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_uk6kx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(404, 188)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(163, 138)]
+}
+
+[sub_resource type="Animation" id="Animation_r7mum"]
+resource_name = "close_window"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(404, 188), Vector2(147, 106), Vector2(32, 48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(163, 138), Vector2(446, 217), Vector2(540, 293)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmrg5"]
+_data = {
+&"RESET": SubResource("Animation_uk6kx"),
+&"close_window": SubResource("Animation_r7mum")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s7id"]
+atlas = ExtResource("6_imsrs")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lth0"]
+atlas = ExtResource("6_imsrs")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vlqvt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lth0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kn324"]
+radius = 5.0
+
+[node name="option_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 651.0
+script = ExtResource("1_uk6kx")
+
+[node name="window_back" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 576.0
+offset_bottom = 324.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_40rol")
+patch_margin_left = 16
+patch_margin_top = 32
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="TabContainer" type="TabContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 56.0
+offset_top = 56.0
+offset_right = 1096.0
+offset_bottom = 592.0
+current_tab = 1
+
+[node name="Video" type="ScrollContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Video"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Video/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Video/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+selected = 0
+item_count = 1
+popup/item_0/text = "1920 x 1080"
+popup/item_0/id = 0
+
+[node name="Label" type="Label" parent="TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Label10" type="Label" parent="TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Label11" type="Label" parent="TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Label12" type="Label" parent="TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Label13" type="Label" parent="TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Sonido" type="ScrollContainer" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sonido"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Sonido/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Sonido/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Volumen"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Sonido/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+
+[node name="titlePH" type="Label" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 28.0
+offset_right = 174.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "OPTIONS"
+
+[node name="exitMenuBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1072.0
+offset_top = 32.0
+offset_right = 1104.0
+offset_bottom = 64.0
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wwsa2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jsrd8")
+flat = true
+
+[node name="TextureRect" type="AnimatedSprite2D" parent="exitMenuBtn"]
+position = Vector2(16, 16)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_jsrd8")
+animation = &"normal"
+
+[node name="confirm_window" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 540.0
+offset_top = 293.0
+offset_right = 572.0
+offset_bottom = 341.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_40rol")
+patch_margin_left = 16
+patch_margin_top = 32
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="confirm_window"]
+libraries = {
+&"": SubResource("AnimationLibrary_qmrg5")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="player_cur" type="Node2D" parent="CanvasLayer"]
+position = Vector2(-32, -32)
+script = ExtResource("5_qmrg5")
+
+[node name="cur_soul_sprite" type="AnimatedSprite2D" parent="CanvasLayer/player_cur"]
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_vlqvt")
+
+[node name="cur_interaction_area" type="Area2D" parent="CanvasLayer/player_cur"]
+
+[node name="cur_interaction_col" type="CollisionShape2D" parent="CanvasLayer/player_cur/cur_interaction_area"]
+position = Vector2(5, 11)
+shape = SubResource("CircleShape2D_kn324")
+
+[connection signal="pressed" from="exitMenuBtn" to="." method="_on_exit_menu_btn_pressed"]

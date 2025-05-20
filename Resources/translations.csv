@@ -1,0 +1,17 @@
+﻿key;es;en
+BUTTON_EXIT;SALIR;EXIT
+BUTTON_FULLSCREEN;Completa;Fullscreen 
+BUTTON_OPTIONS;OPCIONES;OPTIONS
+BUTTON_PLAY;JUGAR;PLAY
+BUTTON_SAVE_NEW;NUEVA;NEW
+BUTTON_WINDOW;Ventana;Windowed
+KEY_MOUSE;;
+TEXT_MENU_LANG;Idioma:  ;Language:  
+TEXT_MENU_VOL;Volumen:  ;Volume:  
+TEXT_MENU_WIN;Pantalla:  ;Window:  
+TEXT_TUT_JUMP;Salta con la tecla [wave amp=25 freq=4]ESPACIO[/wave]!;Use [wave amp=25 freq=4]SPACE[/wave] to jump!
+TEXT_TUT_MOUSE;Puedes usar el MOUSE para agarrar y mover objetos. Pruebalo!;You can use your MOUSE to grab objects and move them around. Try it!
+TEXT_TUT_MOVE;Usa  [wave amp=25 freq=4]WASD[/wave] para moverte por ahi!;Use  [wave amp=25 freq=4]WASD[/wave] to move around!
+UI_TIME;Tiempo;Time
+UI_TIME_BEST;Mejor tiempo;Best time
+WORD_LEVEL;NIVEL;LEVEL

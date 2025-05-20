@@ -1,0 +1,247 @@
+[gd_scene load_steps=11 format=3 uid="uid://qg8lcvb58w2c"]
+
+[ext_resource type="Theme" uid="uid://couwr1of1iw53" path="res://Resources/uitheme.tres" id="1_8w2x4"]
+[ext_resource type="Texture2D" uid="uid://bby3bciial160" path="res://Sprites/window/window_fat.png" id="1_s5l67"]
+[ext_resource type="Script" uid="uid://43hwdfigsw0f" path="res://Code/Menus/save_select.gd" id="1_vlg1r"]
+[ext_resource type="Script" uid="uid://dfo70dasqdyjj" path="res://Code/Player/player_cur.gd" id="2_3hpyr"]
+[ext_resource type="Texture2D" uid="uid://d1qluayhm881e" path="res://Sprites/Player/Mr.Cursor_Soul.png" id="3_vlg1r"]
+[ext_resource type="Texture2D" uid="uid://c3infx8b60r7t" path="res://Sprites/window/Xbutton.png" id="6_2binc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s7id"]
+atlas = ExtResource("3_vlg1r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lth0"]
+atlas = ExtResource("3_vlg1r")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8w2x4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lth0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2binc"]
+radius = 5.0
+
+[node name="save_select" type="Node2D"]
+script = ExtResource("1_vlg1r")
+
+[node name="background1" type="NinePatchRect" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = -16.0
+offset_right = 288.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_s5l67")
+patch_margin_left = 16
+patch_margin_top = 32
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="background1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = -122.0
+offset_right = 264.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background1/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Partida1" type="HBoxContainer" parent="background1/ScrollContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background1/ScrollContainer/VBoxContainer/Partida1"]
+layout_mode = 2
+
+[node name="saveName" type="Label" parent="background1/ScrollContainer/VBoxContainer/Partida1/VBoxContainer"]
+layout_mode = 2
+text = "Partida vacia"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="background1/ScrollContainer/VBoxContainer/Partida1/VBoxContainer"]
+layout_mode = 2
+
+[node name="saveGTime" type="Label" parent="background1/ScrollContainer/VBoxContainer/Partida1/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Played time: 00:00:00"
+
+[node name="saveProg" type="Label" parent="background1/ScrollContainer/VBoxContainer/Partida1/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "     Progress: 0%   "
+
+[node name="Button" type="Button" parent="background1/ScrollContainer/VBoxContainer/Partida1"]
+layout_mode = 2
+theme = ExtResource("1_8w2x4")
+text = "PLAY"
+
+[node name="Partida2" type="HBoxContainer" parent="background1/ScrollContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background1/ScrollContainer/VBoxContainer/Partida2"]
+layout_mode = 2
+
+[node name="saveName" type="Label" parent="background1/ScrollContainer/VBoxContainer/Partida2/VBoxContainer"]
+layout_mode = 2
+text = "Partida vacia"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="background1/ScrollContainer/VBoxContainer/Partida2/VBoxContainer"]
+layout_mode = 2
+
+[node name="saveGTime" type="Label" parent="background1/ScrollContainer/VBoxContainer/Partida2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Played time: 00:00:00"
+
+[node name="saveProg" type="Label" parent="background1/ScrollContainer/VBoxContainer/Partida2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "     Progress: 0%   "
+
+[node name="Button" type="Button" parent="background1/ScrollContainer/VBoxContainer/Partida2"]
+layout_mode = 2
+text = "PLAY"
+
+[node name="Partida3" type="HBoxContainer" parent="background1/ScrollContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background1/ScrollContainer/VBoxContainer/Partida3"]
+layout_mode = 2
+
+[node name="saveName" type="Label" parent="background1/ScrollContainer/VBoxContainer/Partida3/VBoxContainer"]
+layout_mode = 2
+text = "Partida vacia"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="background1/ScrollContainer/VBoxContainer/Partida3/VBoxContainer"]
+layout_mode = 2
+
+[node name="saveGTime" type="Label" parent="background1/ScrollContainer/VBoxContainer/Partida3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Played time: 00:00:00"
+
+[node name="saveProg" type="Label" parent="background1/ScrollContainer/VBoxContainer/Partida3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "     Progress: 0%   "
+
+[node name="Button" type="Button" parent="background1/ScrollContainer/VBoxContainer/Partida3"]
+layout_mode = 2
+text = "PLAY"
+
+[node name="grabBtn" type="Button" parent="."]
+offset_left = -288.0
+offset_top = -16.0
+offset_right = 288.0
+offset_bottom = 16.0
+flat = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="player_cur" type="Node2D" parent="CanvasLayer"]
+position = Vector2(-32, -32)
+script = ExtResource("2_3hpyr")
+
+[node name="cur_soul_sprite" type="AnimatedSprite2D" parent="CanvasLayer/player_cur"]
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_8w2x4")
+
+[node name="cur_interaction_area" type="Area2D" parent="CanvasLayer/player_cur"]
+
+[node name="cur_interaction_col" type="CollisionShape2D" parent="CanvasLayer/player_cur/cur_interaction_area"]
+position = Vector2(5, 11)
+shape = SubResource("CircleShape2D_2binc")
+
+[node name="close_button" type="Control" parent="."]
+z_index = 1
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 248.0
+offset_top = -16.0
+offset_right = 288.0
+offset_bottom = 24.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="close_button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_2binc")
+
+[node name="closeBtn" type="Button" parent="close_button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -12.0
+offset_right = 32.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 16
+flat = true
+
+[connection signal="pressed" from="background1/ScrollContainer/VBoxContainer/Partida1/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="background1/ScrollContainer/VBoxContainer/Partida2/Button" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="background1/ScrollContainer/VBoxContainer/Partida3/Button" to="." method="_on_button_3_pressed"]
+[connection signal="button_down" from="grabBtn" to="." method="_on_grab_btn_button_down"]
+[connection signal="button_up" from="grabBtn" to="." method="_on_grab_btn_button_up"]
+[connection signal="pressed" from="close_button/closeBtn" to="." method="_on_close_btn_pressed"]

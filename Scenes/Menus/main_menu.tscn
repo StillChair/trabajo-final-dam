@@ -1,0 +1,160 @@
+[gd_scene load_steps=12 format=3 uid="uid://bc83l0volw6yv"]
+
+[ext_resource type="Script" uid="uid://pu17dmwysuyl" path="res://Code/Menus/main_menu.gd" id="1_38aua"]
+[ext_resource type="Theme" uid="uid://couwr1of1iw53" path="res://Resources/uitheme.tres" id="1_chkef"]
+[ext_resource type="Script" uid="uid://dfo70dasqdyjj" path="res://Code/Player/player_cur.gd" id="2_penys"]
+[ext_resource type="Texture2D" uid="uid://d1qluayhm881e" path="res://Sprites/Player/Mr.Cursor_Soul.png" id="3_aur2u"]
+[ext_resource type="PackedScene" uid="uid://qg8lcvb58w2c" path="res://Scenes/Menus/save_select.tscn" id="3_neey8"]
+[ext_resource type="PackedScene" uid="uid://cf3qim0f4lqs2" path="res://Scenes/Objects/options_window.tscn" id="4_aur2u"]
+[ext_resource type="AudioStream" uid="uid://bjdjavgac3iye" path="res://Resources/file_example_MP3_700KB.mp3" id="5_5wi6m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s7id"]
+atlas = ExtResource("3_aur2u")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lth0"]
+atlas = ExtResource("3_aur2u")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5wi6m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lth0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7id")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_chkef"]
+radius = 5.0
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_chkef")
+script = ExtResource("1_38aua")
+
+[node name="titlePH" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_right = 156.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 64
+text = "TITULO"
+horizontal_alignment = 1
+
+[node name="subTitlePH2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_right = 109.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "in-dev 0.0.1"
+
+[node name="menu_buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.5
+offset_top = -162.5
+offset_right = 101.5
+offset_bottom = 162.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="playBtn" type="Button" parent="menu_buttons"]
+layout_mode = 2
+text = "BUTTON_PLAY"
+
+[node name="optBtn" type="Button" parent="menu_buttons"]
+layout_mode = 2
+text = "BUTTON_OPTIONS"
+
+[node name="exitBtn" type="Button" parent="menu_buttons"]
+layout_mode = 2
+text = "BUTTON_EXIT"
+
+[node name="debugBtn" type="Button" parent="menu_buttons"]
+visible = false
+layout_mode = 2
+text = "TEST PLAY"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="save_select" parent="CanvasLayer" instance=ExtResource("3_neey8")]
+visible = false
+position = Vector2(290.5, 71.5)
+scale = Vector2(0.5, 0.5)
+
+[node name="options_window" parent="CanvasLayer" instance=ExtResource("4_aur2u")]
+visible = false
+position = Vector2(288, 56)
+
+[node name="player_cur" type="Node2D" parent="CanvasLayer"]
+top_level = true
+position = Vector2(-32, -32)
+script = ExtResource("2_penys")
+
+[node name="cur_soul_sprite" type="AnimatedSprite2D" parent="CanvasLayer/player_cur"]
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_5wi6m")
+
+[node name="cur_interaction_area" type="Area2D" parent="CanvasLayer/player_cur"]
+
+[node name="cur_interaction_col" type="CollisionShape2D" parent="CanvasLayer/player_cur/cur_interaction_area"]
+position = Vector2(5, 11)
+shape = SubResource("CircleShape2D_chkef")
+
+[node name="vol_test" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5wi6m")
+autoplay = true
+
+[connection signal="pressed" from="menu_buttons/playBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="menu_buttons/optBtn" to="." method="_on_opt_btn_pressed"]
+[connection signal="pressed" from="menu_buttons/exitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="menu_buttons/debugBtn" to="." method="_on_debug_btn_pressed"]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8xlwc3ct0iqp"]
+
+[ext_resource type="Script" uid="uid://csg5noh84doj5" path="res://Scenes/Objects/Grabbable/grabbable_object_test.gd" id="1_ysf5u"]
+[ext_resource type="Texture2D" uid="uid://dypy3ligbon84" path="res://Sprites/icon.svg" id="2_r0tcm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysf5u"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kph3u"]
+size = Vector2(24, 24)
+
+[node name="grabbable_object_test" type="RigidBody2D"]
+script = ExtResource("1_ysf5u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_r0tcm")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 108.0
+offset_bottom = 108.0
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 26
+text = "grab
+zone"
+
+[node name="player_detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection_area"]
+shape = SubResource("RectangleShape2D_ysf5u")
+debug_color = Color(0.969064, 0, 0.463808, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kph3u")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="body_entered" from="player_detection_area" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_exited" from="player_detection_area" to="." method="_on_player_detection_area_body_exited"]
