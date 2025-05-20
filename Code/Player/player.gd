@@ -23,7 +23,7 @@ func _ready():
 		#$Camera2D.zoom = Vector2(2.0, 2.0)
 	pass
 
-func _physics_process(delta):
+func _process(delta):
 	
 	if active == true:
 		# Exit when pressing ESC
@@ -58,10 +58,11 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, accel*3)
 			
 		# Stop player from exceding maximum speed
-		if velocity.x > maxspeed:
-			velocity.x = maxspeed
-		if velocity.x < -maxspeed:
-			velocity.x = -maxspeed
+		velocity.x = clampf(velocity.x, -maxspeed, maxspeed)
+		#if velocity.x > maxspeed:
+			#velocity.x = maxspeed
+		#if velocity.x < -maxspeed:
+			#velocity.x = -maxspeed
 		
 		# Mouse control
 		if Input.is_action_pressed("ctrl-sp2"):

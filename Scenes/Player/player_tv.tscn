@@ -72,6 +72,7 @@ shape = SubResource("RectangleShape2D_ud2vl")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 script = ExtResource("3_0hbm2")
 
 [node name="player_hurtbox" type="Area2D" parent="."]
