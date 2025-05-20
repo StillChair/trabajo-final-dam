@@ -15,3 +15,14 @@ TEXT_TUT_MOVE;Usa  [wave amp=25 freq=4]WASD[/wave] para moverte por ahi!;Use  [w
 UI_TIME;Tiempo;Time
 UI_TIME_BEST;Mejor tiempo;Best time
 WORD_LEVEL;NIVEL;LEVEL
+LVL_TUT;Tutolandia;Tutorialand
+LVL_01;;
+LVL_02;;
+LVL_03;;
+LVL_04;;
+LVL_05;;
+LVL_06;;
+LVL_07;;
+LVL_08;;
+LVL_09;;
+LVL_10;;
