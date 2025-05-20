@@ -18,7 +18,7 @@ script = ExtResource("1_unoq4")
 [node name="background" parent="background" instance=ExtResource("1_kjgc0")]
 
 [node name="level" type="Node2D" parent="."]
-position = Vector2(-368, 208)
+position = Vector2(-896, 616)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="level"]
 offset_left = 671.0
