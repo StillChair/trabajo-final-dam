@@ -9,6 +9,7 @@ KEY_MOUSE;;
 TEXT_MENU_LANG;Idioma:  ;Language:  
 TEXT_MENU_VOL;Volumen:  ;Volume:  
 TEXT_MENU_WIN;Pantalla:  ;Window:  
+TEXT_MENU_PLAYED_TIME;Tiempo jugado: ;Played time: 
 TEXT_TUT_JUMP;Salta con la tecla [wave amp=25 freq=4]ESPACIO[/wave]!;Use [wave amp=25 freq=4]SPACE[/wave] to jump!
 TEXT_TUT_MOUSE;Puedes usar el MOUSE para agarrar y mover objetos. Pruebalo!;You can use your MOUSE to grab objects and move them around. Try it!
 TEXT_TUT_MOVE;Usa  [wave amp=25 freq=4]WASD[/wave] para moverte por ahi!;Use  [wave amp=25 freq=4]WASD[/wave] to move around!
@@ -26,3 +27,5 @@ LVL_07;;
 LVL_08;;
 LVL_09;;
 LVL_10;;
+TEXT_MENU_SAVE_NAME;Partida;Save game
+TEXT_MENU_NEW_SAVE;Nueva partida;New game

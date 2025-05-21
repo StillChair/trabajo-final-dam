@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://c3infx8b60r7t" path="res://Sprites/window/Xbutton.png" id="3_2xyl4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xyl4"]
-size = Vector2(356, 390)
+size = Vector2(190, 190)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qhvn"]
-size = Vector2(316, 350)
+size = Vector2(150, 150)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2xyl4"]
 radius = 50.0

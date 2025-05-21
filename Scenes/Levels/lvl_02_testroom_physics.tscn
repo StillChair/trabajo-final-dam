@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://8irbj1g31qkm"]
+[gd_scene load_steps=7 format=4 uid="uid://8irbj1g31qkm"]
 
 [ext_resource type="TileSet" uid="uid://bw1tfl0n45rss" path="res://Resources/test_tileset.tres" id="1_8uh2b"]
+[ext_resource type="PackedScene" uid="uid://bd2jiuw4a57it" path="res://Scenes/Objects/Grabbable/grabbable_crate.tscn" id="1_dfal4"]
 [ext_resource type="PackedScene" uid="uid://12da8b2cj75y" path="res://Scenes/Player/player_tv.tscn" id="2_8v1q5"]
 [ext_resource type="PackedScene" uid="uid://cc6bfw3lmx0ff" path="res://Scenes/Objects/Grabbable/grabbable_long_test.tscn" id="3_dfal4"]
 [ext_resource type="PackedScene" uid="uid://c8xlwc3ct0iqp" path="res://Scenes/Objects/Grabbable/grabbable_object_test.tscn" id="4_1s2hk"]
@@ -9,6 +10,9 @@
 [node name="lvl02-testroom2_physics" type="Node2D"]
 
 [node name="background" type="Node2D" parent="."]
+
+[node name="grabbable_crate" parent="." instance=ExtResource("1_dfal4")]
+position = Vector2(223, 25)
 
 [node name="level" type="Node2D" parent="."]
 

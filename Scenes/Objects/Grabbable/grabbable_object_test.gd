@@ -5,7 +5,10 @@ var followspeed = 0.1
 
 func _process(delta: float) -> void:
 	if grab == true:
+		freeze = true
 		position = lerp(position, get_global_mouse_position(), followspeed)
+	else:
+		freeze = false
 	
 	
 
