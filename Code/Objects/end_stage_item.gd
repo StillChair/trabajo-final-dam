@@ -5,6 +5,7 @@ const FADE_TO_BLACK = preload("res://addons/scene_manager/test/change_scene/tran
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimatedSprite2D.play("default")
 	pass # Replace with function body.
 
 

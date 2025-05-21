@@ -66,7 +66,7 @@ func load_data():
 			saveName.text = tr("TEXT_MENU_NEW_SAVE")
 			buttonText.text = tr("BUTTON_SAVE_NEW")
 		else:
-			saveName.text = tr("TEXT_MENU_SAVE_NAME")
+			saveName.text = tr("TEXT_MENU_SAVE_NAME") + " " + str(loop+1)
 			buttonText.text = tr("BUTTON_PLAY")
 		
 		loop += 1

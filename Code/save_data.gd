@@ -98,7 +98,7 @@ func startup():
 		# Insertar filas en la tabla partida_niveles para cada combinación de partida y nivel
 		for level_id in level_ids:
 			for partida_id in [1, 2, 3]:
-				if level_id == 0 or level_id == 1:
+				if level_id == 0:
 					database.insert_row("partida_niveles", {
 					"idPartida": partida_id,
 					"idNivel": level_id,
@@ -122,6 +122,7 @@ func startup():
 		print("DEBUG | DATABASE EXISTS -> LOADING DATA...")
 		#print(database.select_rows("partidas", "", ["*"]))
 		partidas = database.select_rows("partidas", "", ["*"])
+		niveles = database.select_rows("niveles", "", ["*"])
 		print("DEBUG | PARTIDAS:")
 		print("DEBUG | "+str(partidas))
 	
@@ -145,10 +146,11 @@ func load_save(saveId):
 	print("DEBUG | " + str(datos_partida))
 	
 	# Load played time
-	total_time = partidas[saveId]["tiempo_total"]
+	total_time = partidas[saveId-1]["tiempo_total"]
 	if total_time == null:
 		total_time = 0
 	
+	print("DEBUG | LOADED PLAY TIME: " + str(total_time))
 
 func create_save(saveId):
 	print("DEBUG | CREATING SAVE DATA IN SLOT " + str(saveId) + "...")
@@ -166,11 +168,13 @@ func save_level_beat(idNivel:int):
 	if partidas[cur_partida-1]["nueva"] == 1:
 		create_save(cur_partida)
 	database.update_rows("partida_niveles", "idPartida = "+str(cur_partida)+" and idNivel = " + str(idNivel), {"completado":1})
-	if idNivel+1 == len(niveles):
+	if idNivel+2 == len(niveles):
 		print("DEBUG | UNLOCKING NEXT LEVEL")
-		database.update_rows("partida_niveles", "idPartida = "+str(cur_partida)+"and idNivel = " + str(idNivel+1), {"desbloqueado":1})
+		database.update_rows("partida_niveles", "idPartida = "+str(cur_partida)+" and idNivel = " + str(idNivel+1), {"desbloqueado":1})
 	else:
-		print("DEBUG | NO MORE LEVELS TO UNLOCK")
+		print("DEBUG | NO MORE LEVELS TO UNLOCK OR NOT NEW LEVEL")
+	
+	refresh_data()
 
 func end_game():
 	end_time = Time.get_unix_time_from_system()  # Guarda el tiempo de finalización
@@ -180,6 +184,7 @@ func end_game():
 
 func add_to_total_play_time(session_time):
 	total_time += session_time
+	print("DEBUG | TOTAL TIME PLAYED: ", total_time, " SECONDS")
 	database.update_rows("partidas", "idPartida = "+ str(cur_partida), {"tiempo_total":total_time})
 
 func _notification(what):
@@ -187,3 +192,9 @@ func _notification(what):
 		if playing == true:
 			await end_game()
 		get_tree().quit() # default behavior
+
+func refresh_data():
+	print("DEBUG | LOADING DATA FROM SLOT " + str(cur_partida) + "...")
+	datos_partida = database.select_rows("partida_niveles", "idPartida = "+str(cur_partida), ["*"])
+	print("DEBUG | REFRESHED DATA:")
+	print("DEBUG | " + str(datos_partida))

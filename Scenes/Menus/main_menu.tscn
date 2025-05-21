@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bc83l0volw6yv"]
+[gd_scene load_steps=15 format=3 uid="uid://bc83l0volw6yv"]
 
 [ext_resource type="Script" uid="uid://pu17dmwysuyl" path="res://Code/Menus/main_menu.gd" id="1_38aua"]
 [ext_resource type="Theme" uid="uid://couwr1of1iw53" path="res://Resources/uitheme.tres" id="1_chkef"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://qg8lcvb58w2c" path="res://Scenes/Menus/save_select.tscn" id="3_neey8"]
 [ext_resource type="PackedScene" uid="uid://cf3qim0f4lqs2" path="res://Scenes/Objects/options_window.tscn" id="4_aur2u"]
 [ext_resource type="AudioStream" uid="uid://bjdjavgac3iye" path="res://Resources/file_example_MP3_700KB.mp3" id="5_5wi6m"]
+[ext_resource type="Texture2D" uid="uid://cnqjsbtus3ipr" path="res://Textures/Tilesets/Seasonal Tilesets 1/1 - Grassland/Background parts/5 - Sky_color.png" id="8_j4kqa"]
+[ext_resource type="Texture2D" uid="uid://ysnkgha0dbbq" path="res://Textures/Tilesets/Seasonal Tilesets 1/1 - Grassland/Background parts/4 - Cloud_cover_2.png" id="9_anmaw"]
+[ext_resource type="Script" uid="uid://be0gepdlm8wbj" path="res://Code/BG/main_menu_clouds.gd" id="9_ftsii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0s7id"]
 atlas = ExtResource("3_aur2u")
@@ -75,7 +78,6 @@ offset_left = -156.0
 offset_right = 156.0
 offset_bottom = 88.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 64
 text = "TITULO"
 horizontal_alignment = 1
@@ -153,6 +155,26 @@ shape = SubResource("CircleShape2D_chkef")
 [node name="vol_test" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_5wi6m")
 autoplay = true
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2(957, 537.5)
+scale = Vector2(0.889757, 0.724159)
+texture = ExtResource("8_j4kqa")
+flip_v = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+script = ExtResource("9_ftsii")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1084, 767)
+texture = ExtResource("9_anmaw")
+flip_v = true
 
 [connection signal="pressed" from="menu_buttons/playBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="menu_buttons/optBtn" to="." method="_on_opt_btn_pressed"]

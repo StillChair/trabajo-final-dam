@@ -29,3 +29,5 @@ LVL_07;;
 LVL_08;;
 LVL_09;;
 LVL_10;;
+TEXT_MENU_SAVING_DISCLAIMER;Los datos se guardan automáticamente.\nNo cierres el juego mientras se muestre este simbolo;Data saves automatically.\nPlease never exit the game while this icon is showing
+TEXT_UI_PRESS_TO_CONTINUE; [wave amp=25 freq=4]Pulsa ESPACIO para continuar[/wave]; [wave amp=25 freq=4]Press SPACE to continue[/wave]
