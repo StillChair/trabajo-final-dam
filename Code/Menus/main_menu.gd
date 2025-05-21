@@ -6,6 +6,7 @@ func _process(delta: float) -> void:
 		SceneManager.transition_start(FADE_TO_BLACK).finished.connect(load_menu)
 
 func _on_play_btn_pressed():
+	$CanvasLayer/save_select.load_data()
 	$CanvasLayer/save_select.visible = true
 
 

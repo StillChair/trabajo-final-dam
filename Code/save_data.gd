@@ -180,7 +180,7 @@ func end_game():
 
 func add_to_total_play_time(session_time):
 	total_time += session_time
-	database.update_rows("partidas", "idPartida = "+cur_partida, {"tiempo_total":total_time})
+	database.update_rows("partidas", "idPartida = "+ str(cur_partida), {"tiempo_total":total_time})
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
