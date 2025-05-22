@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bc83l0volw6yv"]
+[gd_scene load_steps=16 format=3 uid="uid://bc83l0volw6yv"]
 
 [ext_resource type="Script" uid="uid://pu17dmwysuyl" path="res://Code/Menus/main_menu.gd" id="1_38aua"]
 [ext_resource type="Theme" uid="uid://couwr1of1iw53" path="res://Resources/uitheme.tres" id="1_chkef"]
 [ext_resource type="Script" uid="uid://dfo70dasqdyjj" path="res://Code/Player/player_cur.gd" id="2_penys"]
 [ext_resource type="Texture2D" uid="uid://d1qluayhm881e" path="res://Sprites/Player/Mr.Cursor_Soul.png" id="3_aur2u"]
+[ext_resource type="FontFile" uid="uid://rdh7v752r8w8" path="res://Resources/KiwiSoda.ttf" id="3_ftsii"]
 [ext_resource type="PackedScene" uid="uid://qg8lcvb58w2c" path="res://Scenes/Menus/save_select.tscn" id="3_neey8"]
 [ext_resource type="PackedScene" uid="uid://cf3qim0f4lqs2" path="res://Scenes/Objects/options_window.tscn" id="4_aur2u"]
 [ext_resource type="AudioStream" uid="uid://bjdjavgac3iye" path="res://Resources/file_example_MP3_700KB.mp3" id="5_5wi6m"]
@@ -76,11 +77,13 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -156.0
 offset_right = 156.0
-offset_bottom = 88.0
+offset_bottom = 152.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_ftsii")
 theme_override_font_sizes/font_size = 64
 text = "TITULO"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="subTitlePH2" type="Label" parent="."]
 layout_mode = 1

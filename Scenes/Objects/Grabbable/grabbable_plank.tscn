@@ -16,10 +16,10 @@ script = ExtResource("1_lajq2")
 texture = ExtResource("2_n3eb6")
 
 [node name="Button" type="Button" parent="."]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 144.0
-offset_bottom = 144.0
+offset_left = -48.0
+offset_top = -1.0
+offset_right = 432.0
+offset_bottom = 44.0
 scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 26
 flat = true

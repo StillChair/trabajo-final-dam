@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://c3infx8b60r7t" path="res://Sprites/window/Xbutton.png" id="3_2xyl4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xyl4"]
-size = Vector2(190, 190)
+size = Vector2(233, 326)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qhvn"]
-size = Vector2(150, 150)
+size = Vector2(193, 286)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2xyl4"]
 radius = 50.0
@@ -85,7 +85,7 @@ offset_left = 5.0
 offset_right = 135.0
 offset_bottom = 42.0
 scale = Vector2(0.5, 0.5)
-text = "grab zone"
+flat = true
 
 [node name="player_detection_area" type="Area2D" parent="."]
 

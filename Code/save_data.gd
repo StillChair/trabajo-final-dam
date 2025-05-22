@@ -20,6 +20,8 @@ var session_time
 var total_time
 var playing = false
 
+var confetti = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -162,6 +164,8 @@ func save_data(table:String, where:String, data, operation:String = "update"):
 			database.update_rows(table, where, data)
 
 func save_level_beat(idNivel:int):
+	confetti = true
+	
 	print("DEBUG | SAVING LEVEL BEAT")
 	print(str(datos_partida))
 	cur_partida = datos_partida[0]["idPartida"] 

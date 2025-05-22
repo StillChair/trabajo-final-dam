@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ui27el0qdewo"]
+[gd_scene load_steps=14 format=3 uid="uid://ui27el0qdewo"]
 
 [ext_resource type="Script" uid="uid://jekj3qvdlwma" path="res://Code/Menus/level_select.gd" id="1_37jrt"]
 [ext_resource type="Theme" uid="uid://couwr1of1iw53" path="res://Resources/uitheme.tres" id="1_h8yer"]
 [ext_resource type="Script" uid="uid://dfo70dasqdyjj" path="res://Code/Player/player_cur.gd" id="2_sis06"]
 [ext_resource type="Texture2D" uid="uid://d1qluayhm881e" path="res://Sprites/Player/Mr.Cursor_Soul.png" id="3_h8yer"]
+[ext_resource type="Script" uid="uid://bcm7h4os7fgbj" path="res://Code/Menus/beat_confetti.gd" id="5_hihw3"]
+[ext_resource type="Texture2D" uid="uid://b7q6ihswqqvps" path="res://Sprites/dummy_texture.png" id="6_fw7fj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0s7id"]
 atlas = ExtResource("3_h8yer")
@@ -51,6 +53,18 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hihw3"]
 radius = 5.0
 
+[sub_resource type="Gradient" id="Gradient_e6a8k"]
+offsets = PackedFloat32Array(0.528736, 1)
+colors = PackedColorArray(0.937255, 0, 0, 1, 0.847059, 0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_8wt4u"]
+offsets = PackedFloat32Array(0.54023, 1)
+colors = PackedColorArray(0.776343, 0.681888, 2.31028e-06, 1, 0.759432, 0.689448, 3.85046e-07, 0)
+
+[sub_resource type="Gradient" id="Gradient_orx1g"]
+offsets = PackedFloat32Array(0.505747, 0.994253)
+colors = PackedColorArray(0.32549, 0.737255, 0.113725, 1, 0.513726, 0.839216, 0, 0)
+
 [node name="level_select" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -96,3 +110,43 @@ sprite_frames = SubResource("SpriteFrames_8wugl")
 [node name="cur_interaction_col" type="CollisionShape2D" parent="CanvasLayer/player_cur/cur_interaction_area"]
 position = Vector2(5, 11)
 shape = SubResource("CircleShape2D_hihw3")
+
+[node name="beat_confetti" type="Node2D" parent="."]
+script = ExtResource("5_hihw3")
+
+[node name="confetti_red" type="CPUParticles2D" parent="beat_confetti"]
+emitting = false
+texture = ExtResource("6_fw7fj")
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 33.0
+initial_velocity_min = 771.42
+initial_velocity_max = 1000.0
+color_ramp = SubResource("Gradient_e6a8k")
+
+[node name="confetti_yellow" type="CPUParticles2D" parent="beat_confetti"]
+emitting = false
+texture = ExtResource("6_fw7fj")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+direction = Vector2(0, -1)
+spread = 33.0
+initial_velocity_min = 771.42
+initial_velocity_max = 1000.0
+color_ramp = SubResource("Gradient_8wt4u")
+
+[node name="confetti_green" type="CPUParticles2D" parent="beat_confetti"]
+emitting = false
+texture = ExtResource("6_fw7fj")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+direction = Vector2(0, -1)
+spread = 33.0
+initial_velocity_min = 771.42
+initial_velocity_max = 1000.0
+color_ramp = SubResource("Gradient_orx1g")
