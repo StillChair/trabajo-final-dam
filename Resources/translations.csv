@@ -33,3 +33,4 @@ TEXT_MENU_SAVING_DISCLAIMER;Los datos se guardan automáticamente.\nNo cierres e
 TEXT_UI_PRESS_TO_CONTINUE; [wave amp=25 freq=4]Pulsa ESPACIO para continuar[/wave]; [wave amp=25 freq=4]Press SPACE to continue[/wave]
 TEXT_TUT_WIN_GRAB;Y ahora tira para arriba!!;Now pull me up!!
 TEXT_TUT_WIN_NOTGRAB; [wave amp=25 freq=4]Agarrate de mi…[/wave]; [wave amp=25 freq=4]Grab me…[/wave]
+BUTTON_SAVE;GUARDAR;SAVE

@@ -1,11 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ui27el0qdewo"]
+[gd_scene load_steps=15 format=3 uid="uid://ui27el0qdewo"]
 
 [ext_resource type="Script" uid="uid://jekj3qvdlwma" path="res://Code/Menus/level_select.gd" id="1_37jrt"]
 [ext_resource type="Theme" uid="uid://couwr1of1iw53" path="res://Resources/uitheme.tres" id="1_h8yer"]
 [ext_resource type="Script" uid="uid://dfo70dasqdyjj" path="res://Code/Player/player_cur.gd" id="2_sis06"]
 [ext_resource type="Texture2D" uid="uid://d1qluayhm881e" path="res://Sprites/Player/Mr.Cursor_Soul.png" id="3_h8yer"]
 [ext_resource type="Script" uid="uid://bcm7h4os7fgbj" path="res://Code/Menus/beat_confetti.gd" id="5_hihw3"]
-[ext_resource type="Texture2D" uid="uid://b7q6ihswqqvps" path="res://Sprites/dummy_texture.png" id="6_fw7fj"]
+[ext_resource type="Texture2D" uid="uid://dvgg5lvjqnnun" path="res://Sprites/Particles/confetti.png" id="6_hihw3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0s7id"]
 atlas = ExtResource("3_h8yer")
@@ -52,6 +52,12 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hihw3"]
 radius = 5.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hihw3"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = true
 
 [sub_resource type="Gradient" id="Gradient_e6a8k"]
 offsets = PackedFloat32Array(0.528736, 1)
@@ -111,42 +117,266 @@ sprite_frames = SubResource("SpriteFrames_8wugl")
 position = Vector2(5, 11)
 shape = SubResource("CircleShape2D_hihw3")
 
-[node name="beat_confetti" type="Node2D" parent="."]
+[node name="beat_confetti" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 script = ExtResource("5_hihw3")
 
 [node name="confetti_red" type="CPUParticles2D" parent="beat_confetti"]
+material = SubResource("CanvasItemMaterial_hihw3")
+position = Vector2(0, -49)
 emitting = false
-texture = ExtResource("6_fw7fj")
+amount = 16
+texture = ExtResource("6_hihw3")
+lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
+randomness = 0.51
+lifetime_randomness = 0.34
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
 direction = Vector2(0, -1)
 spread = 33.0
 initial_velocity_min = 771.42
 initial_velocity_max = 1000.0
+angular_velocity_min = 150.0
+angular_velocity_max = 250.0
+scale_amount_min = 0.75
+scale_amount_max = 0.75
 color_ramp = SubResource("Gradient_e6a8k")
+anim_speed_min = 5.0
+anim_speed_max = 5.0
+anim_offset_max = 1.0
 
 [node name="confetti_yellow" type="CPUParticles2D" parent="beat_confetti"]
+material = SubResource("CanvasItemMaterial_hihw3")
+position = Vector2(0, -49)
 emitting = false
-texture = ExtResource("6_fw7fj")
+amount = 16
+texture = ExtResource("6_hihw3")
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
-randomness = 1.0
+randomness = 0.51
+lifetime_randomness = 0.34
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
 direction = Vector2(0, -1)
 spread = 33.0
 initial_velocity_min = 771.42
 initial_velocity_max = 1000.0
+angular_velocity_min = 150.0
+angular_velocity_max = 250.0
+scale_amount_min = 0.75
+scale_amount_max = 0.75
 color_ramp = SubResource("Gradient_8wt4u")
+anim_speed_min = 5.0
+anim_speed_max = 5.0
+anim_offset_max = 1.0
 
 [node name="confetti_green" type="CPUParticles2D" parent="beat_confetti"]
+material = SubResource("CanvasItemMaterial_hihw3")
+position = Vector2(0, -49)
 emitting = false
-texture = ExtResource("6_fw7fj")
+amount = 16
+texture = ExtResource("6_hihw3")
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
-randomness = 1.0
+randomness = 0.51
+lifetime_randomness = 0.34
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
 direction = Vector2(0, -1)
 spread = 33.0
 initial_velocity_min = 771.42
 initial_velocity_max = 1000.0
+angular_velocity_min = 150.0
+angular_velocity_max = 250.0
+scale_amount_min = 0.75
+scale_amount_max = 0.75
 color_ramp = SubResource("Gradient_orx1g")
+anim_speed_min = 5.0
+anim_speed_max = 5.0
+anim_offset_max = 1.0
+
+[node name="beat_confetti_l" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="confetti_red" type="CPUParticles2D" parent="beat_confetti_l"]
+material = SubResource("CanvasItemMaterial_hihw3")
+position = Vector2(54, -49)
+emitting = false
+amount = 16
+texture = ExtResource("6_hihw3")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+lifetime_randomness = 0.34
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
+direction = Vector2(0.35, -1)
+spread = 33.0
+initial_velocity_min = 771.42
+initial_velocity_max = 1000.0
+angular_velocity_min = 150.0
+angular_velocity_max = 250.0
+scale_amount_min = 0.75
+scale_amount_max = 0.75
+color_ramp = SubResource("Gradient_e6a8k")
+anim_speed_min = 5.0
+anim_speed_max = 5.0
+anim_offset_max = 1.0
+
+[node name="confetti_yellow" type="CPUParticles2D" parent="beat_confetti_l"]
+material = SubResource("CanvasItemMaterial_hihw3")
+position = Vector2(54, -49)
+emitting = false
+amount = 16
+texture = ExtResource("6_hihw3")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+lifetime_randomness = 0.34
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
+direction = Vector2(0.35, -1)
+spread = 33.0
+initial_velocity_min = 771.42
+initial_velocity_max = 1000.0
+angular_velocity_min = 150.0
+angular_velocity_max = 250.0
+scale_amount_min = 0.75
+scale_amount_max = 0.75
+color_ramp = SubResource("Gradient_8wt4u")
+anim_speed_min = 5.0
+anim_speed_max = 5.0
+anim_offset_max = 1.0
+
+[node name="confetti_green" type="CPUParticles2D" parent="beat_confetti_l"]
+material = SubResource("CanvasItemMaterial_hihw3")
+position = Vector2(54, -49)
+emitting = false
+amount = 16
+texture = ExtResource("6_hihw3")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+lifetime_randomness = 0.34
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
+direction = Vector2(0.35, -1)
+spread = 33.0
+initial_velocity_min = 771.42
+initial_velocity_max = 1000.0
+angular_velocity_min = 150.0
+angular_velocity_max = 250.0
+scale_amount_min = 0.75
+scale_amount_max = 0.75
+color_ramp = SubResource("Gradient_orx1g")
+anim_speed_min = 5.0
+anim_speed_max = 5.0
+anim_offset_max = 1.0
+
+[node name="beat_confetti_r" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="confetti_red" type="CPUParticles2D" parent="beat_confetti_r"]
+material = SubResource("CanvasItemMaterial_hihw3")
+position = Vector2(-62, -49)
+emitting = false
+amount = 16
+texture = ExtResource("6_hihw3")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+lifetime_randomness = 0.34
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
+direction = Vector2(-0.35, -1)
+spread = 33.0
+initial_velocity_min = 771.42
+initial_velocity_max = 1000.0
+angular_velocity_min = 150.0
+angular_velocity_max = 250.0
+scale_amount_min = 0.75
+scale_amount_max = 0.75
+color_ramp = SubResource("Gradient_e6a8k")
+anim_speed_min = 5.0
+anim_speed_max = 5.0
+anim_offset_max = 1.0
+
+[node name="confetti_yellow" type="CPUParticles2D" parent="beat_confetti_r"]
+material = SubResource("CanvasItemMaterial_hihw3")
+position = Vector2(-62, -49)
+emitting = false
+amount = 16
+texture = ExtResource("6_hihw3")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+lifetime_randomness = 0.34
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
+direction = Vector2(-0.35, -1)
+spread = 33.0
+initial_velocity_min = 771.42
+initial_velocity_max = 1000.0
+angular_velocity_min = 150.0
+angular_velocity_max = 250.0
+scale_amount_min = 0.75
+scale_amount_max = 0.75
+color_ramp = SubResource("Gradient_8wt4u")
+anim_speed_min = 5.0
+anim_speed_max = 5.0
+anim_offset_max = 1.0
+
+[node name="confetti_green" type="CPUParticles2D" parent="beat_confetti_r"]
+material = SubResource("CanvasItemMaterial_hihw3")
+position = Vector2(-62, -49)
+emitting = false
+amount = 16
+texture = ExtResource("6_hihw3")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+lifetime_randomness = 0.34
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
+direction = Vector2(-0.35, -1)
+spread = 33.0
+initial_velocity_min = 771.42
+initial_velocity_max = 1000.0
+angular_velocity_min = 150.0
+angular_velocity_max = 250.0
+scale_amount_min = 0.75
+scale_amount_max = 0.75
+color_ramp = SubResource("Gradient_orx1g")
+anim_speed_min = 5.0
+anim_speed_max = 5.0
+anim_offset_max = 1.0

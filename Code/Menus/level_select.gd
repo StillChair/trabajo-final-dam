@@ -7,6 +7,8 @@ var level_path = ""
 var nivel_index = 0
 
 func _ready() -> void:
+	SceneManager.transition_start(FADE_TO_BLACK, true).finished.connect($beat_confetti.confetti)
+	
 	var dir := DirAccess.open("res://Scenes/Levels")
 	if dir == null: printerr("Could not open folder"); return
 	dir.list_dir_begin()
