@@ -9,7 +9,7 @@ size = Vector2(38, 38)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kph3u"]
 size = Vector2(32, 32)
 
-[node name="grabbable_crate" type="RigidBody2D"]
+[node name="grabbable_crate" type="RigidBody2D" groups=["object"]]
 script = ExtResource("1_uvxcy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -17,19 +17,22 @@ func _process(delta):
 
 func _on_button_pressed() -> void:
 	SaveData.load_save(1)
-	SceneManager._load_scene(level_select, 1.0)
+	SceneManager.transition_start(Globals.FADE_TO_BLACK).finished.connect(to_level_select)
+	#SceneManager._load_scene(level_select, 1.0)
 	pass # Replace with function body.
 
 
 func _on_button_2_pressed() -> void:
 	SaveData.load_save(2)
-	SceneManager._load_scene(level_select, 1.0)
+	SceneManager.transition_start(Globals.FADE_TO_BLACK).finished.connect(to_level_select)
+	#SceneManager._load_scene(level_select, 1.0)
 	pass # Replace with function body.
 
 
 func _on_button_3_pressed() -> void:
 	SaveData.load_save(3)
-	SceneManager._load_scene(level_select, 1.0)
+	SceneManager.transition_start(Globals.FADE_TO_BLACK).finished.connect(to_level_select)
+	#SceneManager._load_scene(level_select, 1.0)
 	pass # Replace with function body.
 
 
@@ -70,3 +73,6 @@ func load_data():
 			buttonText.text = tr("BUTTON_PLAY")
 		
 		loop += 1
+
+func to_level_select():
+	SceneManager._load_scene(level_select, 1.0)

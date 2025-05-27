@@ -102,16 +102,6 @@ shape = SubResource("RectangleShape2D_3qhvn")
 
 [node name="debug" type="Node" parent="."]
 
-[node name="Line2D" type="Line2D" parent="debug"]
-visible = false
-show_behind_parent = true
-points = PackedVector2Array(0, 0, 0, 0)
-width = 5.0
-default_color = Color(0, 0.572549, 0, 1)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="debug"]
 position = Vector2(-88, -9)
 shape = SubResource("CircleShape2D_2xyl4")

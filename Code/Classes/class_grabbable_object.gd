@@ -4,8 +4,8 @@ class_name grabbable
 
 @export var physics_item = true ## Controls if the object has physics when not grabbed
 @export_enum("Free", "Linear Y", "Linear X") var movement_type = 0 ## Controls if object only follows mouse through one axis
-@export_range(0.0, 1000.0, 10.0) var y_range = 50.0 ## Range of linear y-axis movement
-@export_range(0.0, 1000.0, 10.0) var x_range = 50.0 ## Range of linear x-axis movement
+@export_range(-100.0, 1000.0, 10.0) var y_range = 50.0 ## Range of linear y-axis movement
+@export_range(-100.0, 1000.0, 10.0) var x_range = 50.0 ## Range of linear x-axis movement
 @export_range(0.01, 1000.0) var radius = 50.0 ## Radius of free movement allowed
 @export var spring_back = false ## Controls if object goes back to position 0 when letting go (If linear enabled)
 @export_range(0.5, 2.0, 0.1) var spring_back_force = 1.0 ## Speed at which object springs back to original position
@@ -15,6 +15,7 @@ var grab = false
 var disabled = false
 var toprange = global_position
 var placed_pos
+var blocked = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -88,9 +89,13 @@ func _on_button_button_up():
 func _on_player_detection_area_body_entered(body):
 	if body.is_in_group('Player'):
 		disabled = true
+	elif body.is_in_group('object'):
+		blocked = true
 
 
 func _on_player_detection_area_body_exited(body):
 	if body.is_in_group('Player'):
 		disabled = false
+	elif body.is_in_group('object'):
+		blocked = false
 	pass # Replace with function body.

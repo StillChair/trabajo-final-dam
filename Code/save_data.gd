@@ -60,6 +60,7 @@ func startup():
 				desbloqueado INTEGER,
 				completado INTEGER,
 				tiempo REAL,
+				puntos INTEGER,
 				PRIMARY KEY (idPartida, idNivel),
 				FOREIGN KEY (idPartida) REFERENCES partidas(idPartida) ON DELETE CASCADE,
 				FOREIGN KEY (idNivel) REFERENCES niveles(idNivel) ON DELETE CASCADE
@@ -106,7 +107,8 @@ func startup():
 					"idNivel": level_id,
 					"desbloqueado": 1,
 					"completado": 0,
-					"tiempo": 0.0
+					"tiempo": 0.0,
+					"puntos": 0
 				})
 				else:
 					database.insert_row("partida_niveles", {
@@ -114,7 +116,8 @@ func startup():
 						"idNivel": level_id,
 						"desbloqueado": 0,
 						"completado": 0,
-						"tiempo": 0.0
+						"tiempo": 0.0,
+						"puntos": 0
 					})
 		
 		partidas = database.select_rows("partidas", "", ["*"])
@@ -163,7 +166,7 @@ func save_data(table:String, where:String, data, operation:String = "update"):
 		"update":
 			database.update_rows(table, where, data)
 
-func save_level_beat(idNivel:int):
+func save_level_beat(idNivel:int, points, beat_time):
 	confetti = true
 	
 	print("DEBUG | SAVING LEVEL BEAT")
@@ -171,7 +174,7 @@ func save_level_beat(idNivel:int):
 	cur_partida = datos_partida[0]["idPartida"] 
 	if partidas[cur_partida-1]["nueva"] == 1:
 		create_save(cur_partida)
-	database.update_rows("partida_niveles", "idPartida = "+str(cur_partida)+" and idNivel = " + str(idNivel), {"completado":1})
+	database.update_rows("partida_niveles", "idPartida = "+str(cur_partida)+" and idNivel = " + str(idNivel), {"completado":1, "puntos":points, "tiempo":beat_time})
 	if idNivel+2 == len(niveles):
 		print("DEBUG | UNLOCKING NEXT LEVEL")
 		database.update_rows("partida_niveles", "idPartida = "+str(cur_partida)+" and idNivel = " + str(idNivel+1), {"desbloqueado":1})
