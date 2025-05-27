@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beve3hmslg4p3"
-path="res://.godot/imported/Dust (16 x 16).png-498a898a799be5fa60b047c9094976a5.ctex"
+uid="uid://culdd6vknlu14"
+path="res://.godot/imported/wooden_plank.png-02687fad481133ae71c443da1e0f29c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Effects/Dust (16 x 16).png"
-dest_files=["res://.godot/imported/Dust (16 x 16).png-498a898a799be5fa60b047c9094976a5.ctex"]
+source_file="res://Sprites/Objects/wooden_plank.png"
+dest_files=["res://.godot/imported/wooden_plank.png-02687fad481133ae71c443da1e0f29c7.ctex"]
 
 [params]
 

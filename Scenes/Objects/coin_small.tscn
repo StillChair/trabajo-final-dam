@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://dhjnefttjf17o"]
+
+[ext_resource type="Texture2D" uid="uid://blf77f3ke088c" path="res://Sprites/Effects/Bright_Sparkle (16 x 16).png" id="1_pwl1m"]
+[ext_resource type="Texture2D" uid="uid://cr4jgf2gfnwls" path="res://Sprites/Common Pick-ups/Small_Coin (16 x 16).png" id="2_1y6fs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mumns"]
+atlas = ExtResource("1_pwl1m")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0bon"]
+atlas = ExtResource("1_pwl1m")
+region = Rect2(20, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5y8e"]
+atlas = ExtResource("1_pwl1m")
+region = Rect2(40, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg66o"]
+atlas = ExtResource("1_pwl1m")
+region = Rect2(60, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74ttc"]
+atlas = ExtResource("2_1y6fs")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8inew"]
+atlas = ExtResource("2_1y6fs")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rf6lx"]
+atlas = ExtResource("2_1y6fs")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k34x"]
+atlas = ExtResource("2_1y6fs")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_16as0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mumns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0bon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5y8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg66o")
+}],
+"loop": true,
+"name": &"collect",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74ttc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8inew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rf6lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k34x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pl3y1"]
+
+[node name="coin_small" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_16as0")
+animation = &"collect"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_pl3y1")

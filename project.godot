@@ -20,6 +20,7 @@ config/icon="res://Sprites/icon.svg"
 GameOptions="*res://Code/game_options.gd"
 SaveData="*res://Code/save_data.gd"
 SceneManager="*res://addons/scene_manager/autoload/scene_manager.tscn"
+Globals="*res://Code/globals.gd"
 
 [display]
 
@@ -39,6 +40,7 @@ enabled=PackedStringArray("res://addons/scene_manager/plugin.cfg")
 [global_group]
 
 Player=""
+object=""
 
 [gui]
 

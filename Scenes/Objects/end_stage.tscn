@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://i7see8a650wt"]
+[gd_scene load_steps=18 format=3 uid="uid://i7see8a650wt"]
 
 [ext_resource type="Script" uid="uid://drto4x1dms3qr" path="res://Code/Objects/end_stage_item.gd" id="1_xj8ug"]
 [ext_resource type="Texture2D" uid="uid://c7e02c04dmlbl" path="res://Sprites/Common Pick-ups/Coin (16 x 16).png" id="2_b3ouh"]
+[ext_resource type="Texture2D" uid="uid://g5qimahp7ykv" path="res://Sprites/Common Pick-ups/Treasure_Chest (32 x 16).png" id="3_b3ouh"]
+[ext_resource type="FontFile" uid="uid://rdh7v752r8w8" path="res://Resources/KiwiSoda.ttf" id="4_fcppx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uebm4"]
 radius = 9.0
@@ -22,6 +24,18 @@ region = Rect2(32, 0, 16, 16)
 atlas = ExtResource("2_b3ouh")
 region = Rect2(48, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xkyq"]
+atlas = ExtResource("3_b3ouh")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x38pf"]
+atlas = ExtResource("3_b3ouh")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu3t2"]
+atlas = ExtResource("3_b3ouh")
+region = Rect2(64, 0, 32, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_2xkyq"]
 animations = [{
 "frames": [{
@@ -40,7 +54,137 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xkyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x38pf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu3t2")
+}],
+"loop": false,
+"name": &"new_animation",
+"speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_vf0xm"]
+resource_name = "level_beat"
+length = 3.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("level_beat:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.45, 0.5, 1.95),
+"transitions": PackedFloat32Array(1, 0.535887, 0.574349, 0.574349),
+"update": 0,
+"values": [Vector2(-91, -64), Vector2(-91, -118), Vector2(-91, -118), Vector2(-91, -84)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("level_beat:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.55, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2pi1l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("level_beat:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-91, -64)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("level_beat:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("time_beat:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("time_beat:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-91, -41)]
+}
+
+[sub_resource type="Animation" id="Animation_rjv51"]
+resource_name = "time_beat"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("time_beat:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.55, 1.95),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("time_beat:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.55, 1.95),
+"transitions": PackedFloat32Array(1, 0.535888, 1.7411),
+"update": 0,
+"values": [Vector2(-91, -41), Vector2(-91, -83), Vector2(-91, -41)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2xkyq"]
+_data = {
+&"RESET": SubResource("Animation_2pi1l"),
+&"level_beat": SubResource("Animation_vf0xm"),
+&"time_beat": SubResource("Animation_rjv51")
+}
 
 [node name="end_stage" type="Node2D"]
 script = ExtResource("1_xj8ug")
@@ -52,5 +196,39 @@ shape = SubResource("CircleShape2D_uebm4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2xkyq")
+animation = &"new_animation"
+
+[node name="level_beat" type="RichTextLabel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -91.0
+offset_top = -64.0
+offset_right = 98.0
+theme_override_colors/default_color = Color(0, 0.529412, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0.220742, 0.000562312, 0.396498, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/normal_font = ExtResource("4_fcppx")
+text = "TEXT_UI_LEVEL_BEAT"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="time_beat" type="RichTextLabel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -91.0
+offset_top = -41.0
+offset_right = 98.0
+offset_bottom = 23.0
+theme_override_colors/default_color = Color(0.58707, 0.44723, 1.92523e-07, 1)
+theme_override_colors/font_outline_color = Color(0.278081, 0.101971, 0, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/normal_font = ExtResource("4_fcppx")
+theme_override_font_sizes/normal_font_size = 16
+text = "TEXT_UI_TIME_BEAT"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2xkyq")
+}
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

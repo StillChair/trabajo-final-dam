@@ -10,35 +10,19 @@ func _process(delta):
 	if show_debug == false:
 		if Engine.is_editor_hint():
 			if movement_type == 0:
-				$debug/Line2D.visible = false
 				$debug/CollisionShape2D.visible = true
 				$debug/CollisionShape2D.shape.radius = radius
 				$debug/CollisionShape2D.position = position
 			elif movement_type != 0:
 				$debug/CollisionShape2D.visible = false
-				$debug/Line2D.visible = true
-				if movement_type == 1:
-					$debug/Line2D.points[1].y = -y_range
-					$debug/Line2D.points[1].x = 0.0
-				elif movement_type == 2:
-					$debug/Line2D.points[1].y = 0.0
-					$debug/Line2D.points[1].x = x_range
 			queue_redraw()
 	else:
 		if movement_type == 0:
-			$debug/Line2D.visible = false
 			$debug/CollisionShape2D.visible = true
 			$debug/CollisionShape2D.shape.radius = radius
 			$debug/CollisionShape2D.position = position
 		elif movement_type != 0:
-			$debug/Line2D.visible = true
 			$debug/CollisionShape2D.visible = false
-			if movement_type == 1:
-				$debug/Line2D.points[1].y = -y_range
-				$debug/Line2D.points[1].x = 0.0
-			elif movement_type == 2:
-				$debug/Line2D.points[1].y = 0.0
-				$debug/Line2D.points[1].x = x_range
 		queue_redraw()
 	update_window()
 	
@@ -72,7 +56,7 @@ func _process(delta):
 				freeze = false
 			elif  physics_item == false:
 				freeze = true
-			if spring_back == true:
+			if spring_back == true and blocked == false:
 				#position = lerp(position, placed_pos, spring_back_force)
 				position = position.move_toward(placed_pos, spring_back_force)
 	

@@ -16,6 +16,9 @@ var warp_test = 0
 
 @export var exit_to = "res://Scenes/Menus/main_menu.tscn"
 
+# Game variables
+var points = 0
+
 func _ready():
 	#if GameOptions.window_type == 1:
 		#$Camera2D.zoom = Vector2(3.0, 3.0)
@@ -23,12 +26,12 @@ func _ready():
 		#$Camera2D.zoom = Vector2(2.0, 2.0)
 	pass
 
-func _physics_process(delta):
+func _process(delta):
 	
 	if active == true:
 		# Exit when pressing ESC
 		if Input.is_action_just_pressed("esc-exit"):
-			SceneManager._load_scene(exit_to, 0.5)
+			SceneManager.transition_start(Globals.FADE_TO_BLACK).finished.connect(exit_level)
 		
 		
 		
@@ -58,10 +61,11 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, accel*3)
 			
 		# Stop player from exceding maximum speed
-		if velocity.x > maxspeed:
-			velocity.x = maxspeed
-		if velocity.x < -maxspeed:
-			velocity.x = -maxspeed
+		velocity.x = clampf(velocity.x, -maxspeed, maxspeed)
+		#if velocity.x > maxspeed:
+			#velocity.x = maxspeed
+		#if velocity.x < -maxspeed:
+			#velocity.x = -maxspeed
 		
 		# Mouse control
 		if Input.is_action_pressed("ctrl-sp2"):
@@ -81,7 +85,7 @@ func _physics_process(delta):
 		
 		
 		if Input.is_action_just_pressed("r-reload"):
-			SceneManager.reload_current_scene()
+			SceneManager.transition_start(Globals.FADE_TO_BLACK).finished.connect(SceneManager.reload_current_scene)
 		
 		
 		
@@ -116,3 +120,6 @@ func set_actor_active(value : bool):
 
 func _on_cur_interaction_area_body_entered(body):
 	pass # Replace with function body.
+
+func exit_level():
+	SceneManager._load_scene(exit_to, 0.5)

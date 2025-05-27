@@ -20,7 +20,10 @@ func _process(delta):
 	pass
 
 func load_menu():
-	SceneManager.change_scene_to_file(menu_load)
+	SceneManager.transition_start(Globals.FADE_TO_BLACK).finished.connect(switch_scene)
 
 func set_visibility(object, value):
 	object.visible = value
+
+func switch_scene():
+	SceneManager.change_scene_to_file(menu_load)
