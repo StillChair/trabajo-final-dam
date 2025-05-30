@@ -1,7 +1,7 @@
 extends Node
 signal startup_finish
 
-const data_path = "res://Data/savedata.db"
+const data_path = "user://savedata.db"
 var database : SQLite
 var firstTime = true
 
@@ -22,8 +22,14 @@ var playing = false
 
 var confetti = false
 
+var folder
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if OS.has_feature("standalone"):
+		folder = OS.get_executable_path().get_base_dir()
+	else:
+		folder = "res://Scenes/"
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -78,7 +84,7 @@ func startup():
 		database.insert_rows("partidas", [{"idPartida":1,"nueva":1}, {"idPartida":2,"nueva":1}, {"idPartida":3,"nueva":1}])
 		
 		# Insert all present level scenes into table levels
-		var dir := DirAccess.open("res://Scenes/Levels")
+		var dir := DirAccess.open(folder+"Levels")
 		if dir == null: printerr("DEBUG | Could not open folder"); return
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
@@ -205,3 +211,10 @@ func refresh_data():
 	datos_partida = database.select_rows("partida_niveles", "idPartida = "+str(cur_partida), ["*"])
 	print("DEBUG | REFRESHED DATA:")
 	print("DEBUG | " + str(datos_partida))
+
+func update_score(levelId, score):
+	database.update_rows("partida_niveles", "idPartida = "+ str(cur_partida) +" and idNivel = "+levelId, {"puntos":score})
+
+func delete_save(saveId):
+	database.update_rows("Partidas", "idPartida = " + str(saveId), {"nueva":1})
+	database.update_rows("Partida_Niveles", "idPartida = " + str(saveId) + " and idNivel != 0", {"desbloqueado":0, "completado":0, "tiempo":0, "puntos":0})

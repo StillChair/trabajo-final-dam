@@ -1,4 +1,5 @@
 extends Node
+signal finish
 
 var lang : int = 1 # 0:English, 1:Spanish
 var languages = {
@@ -16,9 +17,12 @@ var resolutions : Dictionary= {
 var window_type = 0 # 0:Windowed, 1:Full
 var firstTime = true
 
-var config_path = "res://Data/config.ini"
+var config_path = "user://config.cfg"
 
 func _ready() -> void:
+	if not FileAccess.file_exists(config_path):
+		create_file()
+		await finish
 	load_options()
 	#change_win_size(res)
 	set_screen(window_type)
@@ -60,3 +64,17 @@ func set_screen(mode):
 
 func change_lang(lan):
 	TranslationServer.set_locale(languages[lan])
+
+func create_file():
+	var config = ConfigFile.new()
+	
+	#config.set_value("Game", "Language", GameOptions)
+	config.set_value("Game", "Language", 0)
+	config.set_value("Game", "Volume", 1.0)
+	config.set_value("Game", "Window", 0)
+	
+	var error = config.save(config_path)
+	if error:
+		print("An error happened while saving data: ", error)
+	
+	finish.emit()

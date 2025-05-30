@@ -7,10 +7,10 @@
 [ext_resource type="FontFile" uid="uid://rdh7v752r8w8" path="res://Resources/KiwiSoda.ttf" id="3_ftsii"]
 [ext_resource type="PackedScene" uid="uid://qg8lcvb58w2c" path="res://Scenes/Menus/save_select.tscn" id="3_neey8"]
 [ext_resource type="PackedScene" uid="uid://cf3qim0f4lqs2" path="res://Scenes/Objects/options_window.tscn" id="4_aur2u"]
-[ext_resource type="AudioStream" uid="uid://bjdjavgac3iye" path="res://Resources/file_example_MP3_700KB.mp3" id="5_5wi6m"]
 [ext_resource type="Texture2D" uid="uid://cnqjsbtus3ipr" path="res://Textures/Tilesets/Seasonal Tilesets 1/1 - Grassland/Background parts/5 - Sky_color.png" id="8_j4kqa"]
 [ext_resource type="Texture2D" uid="uid://ysnkgha0dbbq" path="res://Textures/Tilesets/Seasonal Tilesets 1/1 - Grassland/Background parts/4 - Cloud_cover_2.png" id="9_anmaw"]
 [ext_resource type="Script" uid="uid://be0gepdlm8wbj" path="res://Code/BG/main_menu_clouds.gd" id="9_ftsii"]
+[ext_resource type="AudioStream" uid="uid://2wl4xcgeublr" path="res://Music - SFX/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav" id="11_ftsii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0s7id"]
 atlas = ExtResource("3_aur2u")
@@ -70,7 +70,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_chkef")
 script = ExtResource("1_38aua")
 
-[node name="titlePH" type="Label" parent="."]
+[node name="title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -81,11 +81,12 @@ offset_bottom = 152.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3_ftsii")
 theme_override_font_sizes/font_size = 64
-text = "TITULO"
+text = "GRABBOT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="subTitlePH2" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -94,7 +95,6 @@ offset_top = -26.0
 offset_right = 109.0
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "in-dev 0.0.1"
 
 [node name="menu_buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -117,6 +117,10 @@ text = "BUTTON_PLAY"
 [node name="optBtn" type="Button" parent="menu_buttons"]
 layout_mode = 2
 text = "BUTTON_OPTIONS"
+
+[node name="creditBtn" type="Button" parent="menu_buttons"]
+layout_mode = 2
+text = "BUTTON_CREDITS"
 
 [node name="exitBtn" type="Button" parent="menu_buttons"]
 layout_mode = 2
@@ -155,10 +159,6 @@ sprite_frames = SubResource("SpriteFrames_5wi6m")
 position = Vector2(5, 11)
 shape = SubResource("CircleShape2D_chkef")
 
-[node name="vol_test" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_5wi6m")
-autoplay = true
-
 [node name="Background" type="Node2D" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
@@ -179,7 +179,12 @@ position = Vector2(1084, 767)
 texture = ExtResource("9_anmaw")
 flip_v = true
 
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ftsii")
+autoplay = true
+
 [connection signal="pressed" from="menu_buttons/playBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="menu_buttons/optBtn" to="." method="_on_opt_btn_pressed"]
+[connection signal="pressed" from="menu_buttons/creditBtn" to="." method="_on_credit_btn_pressed"]
 [connection signal="pressed" from="menu_buttons/exitBtn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="menu_buttons/debugBtn" to="." method="_on_debug_btn_pressed"]

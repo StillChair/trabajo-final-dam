@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://12da8b2cj75y"]
+[gd_scene load_steps=15 format=3 uid="uid://12da8b2cj75y"]
 
 [ext_resource type="Script" uid="uid://chb6awiha1tkj" path="res://Code/Player/player.gd" id="1_ghbgx"]
 [ext_resource type="SpriteFrames" uid="uid://cmghp7omvfh8l" path="res://Resources/player_spriteframes.tres" id="2_pfyfq"]
 [ext_resource type="Script" uid="uid://bf2uohhhqy5hj" path="res://Code/Player/camera.gd" id="3_0hbm2"]
 [ext_resource type="Texture2D" uid="uid://d1qluayhm881e" path="res://Sprites/Player/Mr.Cursor_Soul.png" id="5_24x1j"]
+[ext_resource type="Texture2D" uid="uid://bby3bciial160" path="res://Sprites/window/window_fat.png" id="6_fublf"]
 [ext_resource type="Script" uid="uid://dfo70dasqdyjj" path="res://Code/Player/player_cur.gd" id="6_hus1f"]
+[ext_resource type="AudioStream" uid="uid://d1ohn76qrirhd" path="res://Music - SFX/jump.wav" id="7_78xsq"]
+[ext_resource type="AudioStream" uid="uid://lxryikql86ap" path="res://Music - SFX/pickupCoin.wav" id="8_rluwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ud2vl"]
 size = Vector2(12, 18)
@@ -93,16 +96,48 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.0
+offset_top = -42.0
+offset_right = 144.0
+offset_bottom = 80.0
+grow_horizontal = 2
+texture = ExtResource("6_fublf")
+patch_margin_left = 16
+patch_margin_top = 32
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="PointsLbl" type="RichTextLabel" parent="CanvasLayer/UI"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+offset_left = -106.0
+offset_bottom = 50.0
 grow_horizontal = 2
+text = "TEXT_UI_POINTS"
+fit_content = true
+vertical_alignment = 1
+
+[node name="PointsLbl2" type="RichTextLabel" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_right = 106.0
+offset_bottom = 50.0
+grow_horizontal = 2
+text = "0000"
+fit_content = true
+vertical_alignment = 1
 
 [node name="player_cur" type="Node2D" parent="CanvasLayer"]
 position = Vector2(-160, -104)
@@ -127,5 +162,17 @@ offset_left = -20.0
 offset_top = -39.0
 offset_right = 20.0
 offset_bottom = -16.0
+
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="jump" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("7_78xsq")
+volume_db = -2.0
+
+[node name="coin" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("8_rluwl")
+volume_db = -2.0
+
+[node name="click" type="AudioStreamPlayer" parent="sfx"]
 
 [connection signal="body_entered" from="CanvasLayer/player_cur/cur_interaction_area" to="." method="_on_cur_interaction_area_body_entered"]

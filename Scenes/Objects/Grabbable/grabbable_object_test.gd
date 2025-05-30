@@ -20,3 +20,11 @@ func _on_button_button_down():
 func _on_button_button_up():
 	grab = false
 	pass # Replace with function body.
+
+
+func _on_player_detection_area_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_player_detection_area_body_exited(body):
+	pass # Replace with function body.

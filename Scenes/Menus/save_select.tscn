@@ -113,15 +113,16 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="saveProg" type="RichTextLabel" parent="background1/ScrollContainer/VBoxContainer/Partida1/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "     Progress: 0%   "
-
 [node name="Button" type="Button" parent="background1/ScrollContainer/VBoxContainer/Partida1"]
 layout_mode = 2
 theme = ExtResource("1_8w2x4")
 text = "PLAY"
+
+[node name="Button_del" type="Button" parent="background1/ScrollContainer/VBoxContainer/Partida1"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_8w2x4")
+text = "BUTTON_DELETE"
 
 [node name="Partida2" type="HBoxContainer" parent="background1/ScrollContainer/VBoxContainer"]
 clip_contents = true
@@ -146,14 +147,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Played time: 00:00:00"
 
-[node name="saveProg" type="RichTextLabel" parent="background1/ScrollContainer/VBoxContainer/Partida2/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "     Progress: 0%   "
-
 [node name="Button" type="Button" parent="background1/ScrollContainer/VBoxContainer/Partida2"]
 layout_mode = 2
 text = "PLAY"
+
+[node name="Button_del" type="Button" parent="background1/ScrollContainer/VBoxContainer/Partida2"]
+visible = false
+layout_mode = 2
+text = "BUTTON_DELETE"
 
 [node name="Partida3" type="HBoxContainer" parent="background1/ScrollContainer/VBoxContainer"]
 clip_contents = true
@@ -179,14 +180,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Played time: 00:00:00"
 
-[node name="saveProg" type="RichTextLabel" parent="background1/ScrollContainer/VBoxContainer/Partida3/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "     Progress: 0%   "
-
 [node name="Button" type="Button" parent="background1/ScrollContainer/VBoxContainer/Partida3"]
 layout_mode = 2
 text = "PLAY"
+
+[node name="Button_del" type="Button" parent="background1/ScrollContainer/VBoxContainer/Partida3"]
+visible = false
+layout_mode = 2
+text = "BUTTON_DELETE"
 
 [node name="grabBtn" type="Button" parent="."]
 offset_left = -288.0
@@ -258,8 +259,11 @@ theme_override_font_sizes/font_size = 16
 flat = true
 
 [connection signal="pressed" from="background1/ScrollContainer/VBoxContainer/Partida1/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="background1/ScrollContainer/VBoxContainer/Partida1/Button_del" to="." method="_on_button_del_pressed"]
 [connection signal="pressed" from="background1/ScrollContainer/VBoxContainer/Partida2/Button" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="background1/ScrollContainer/VBoxContainer/Partida2/Button_del" to="." method="_on_button_del_2_pressed"]
 [connection signal="pressed" from="background1/ScrollContainer/VBoxContainer/Partida3/Button" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="background1/ScrollContainer/VBoxContainer/Partida3/Button_del" to="." method="_on_button_del_3_pressed"]
 [connection signal="button_down" from="grabBtn" to="." method="_on_grab_btn_button_down"]
 [connection signal="button_up" from="grabBtn" to="." method="_on_grab_btn_button_up"]
 [connection signal="pressed" from="close_button/closeBtn" to="." method="_on_close_btn_pressed"]

@@ -1,15 +1,20 @@
 extends Control
 
 var level_btn = preload("res://Scenes/Menus/level_button_instance.tscn")
-const FADE_TO_BLACK = preload("res://addons/scene_manager/test/change_scene/transition/fade_to_black.tres")
+var folder
 
 var level_path = ""
 var nivel_index = 0
 
 func _ready() -> void:
-	SceneManager.transition_start(FADE_TO_BLACK, true).finished.connect($beat_confetti.confetti)
+	SceneManager.transition_start(Globals.FADE_TO_BLACK, true).finished.connect($beat_confetti.confetti)
 	
-	var dir := DirAccess.open("res://Scenes/Levels")
+	if OS.has_feature("standalone"):
+		folder = OS.get_executable_path().get_base_dir()
+	else:
+		folder = "res://Scenes/"
+	
+	var dir := DirAccess.open(folder+"Levels")
 	if dir == null: printerr("Could not open folder"); return
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
@@ -41,8 +46,15 @@ func _ready() -> void:
 func _on_level_button_pressed(button):
 	level_path = button.get_meta("level_path")
 	print("Cargar nivel:", level_path)
-	SceneManager.transition_start(FADE_TO_BLACK).finished.connect(load_level)
+	SceneManager.transition_start(Globals.FADE_TO_BLACK).finished.connect(load_level)
 	# Aquí podrías usar: get_tree().change_scene_to_file(level_path)
 
 func load_level():
 	SceneManager._load_scene(level_path, 0.5)
+
+func _process(delta):
+	if Input.is_action_just_pressed("esc-exit"):
+		SceneManager.transition_start(Globals.FADE_TO_BLACK).finished.connect(exit_to_menu)
+
+func exit_to_menu():
+	SceneManager._load_scene("res://Scenes/Menus/main_menu.tscn", 0.5)

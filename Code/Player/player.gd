@@ -14,10 +14,12 @@ var cursor_activated = false
 var is_cursor_tangible = false
 var warp_test = 0
 
+@onready var sfx_coin = $sfx/coin
+
 @export var exit_to = "res://Scenes/Menus/main_menu.tscn"
 
 # Game variables
-var points = 0
+@onready var level_root = $"../.."
 
 func _ready():
 	#if GameOptions.window_type == 1:
@@ -46,6 +48,7 @@ func _process(delta):
 		if enabled == true:
 			# Jumping
 			if Input.is_action_just_pressed("space-jump-accept") and is_on_floor():
+				$sfx/jump.play()
 				velocity.y = jumpforce
 			
 			# Movement based on direction + walk-stop animation
@@ -106,6 +109,8 @@ func _process(delta):
 		if direction > 0:
 			$player_sprite.flip_h = false
 	
+	
+	$CanvasLayer/UI/PointsLbl2.text = str(level_root.points)
 	
 	
 	$debug/Label.text = str(warp_test)

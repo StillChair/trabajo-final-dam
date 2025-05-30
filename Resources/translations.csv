@@ -1,36 +1,58 @@
-﻿key;es;en
-BUTTON_EXIT;SALIR;EXIT
-BUTTON_FULLSCREEN;Completa;Fullscreen 
-BUTTON_OPTIONS;OPCIONES;OPTIONS
-BUTTON_PLAY;JUGAR;PLAY
-BUTTON_SAVE_NEW;NUEVA;NEW
-BUTTON_WINDOW;Ventana;Windowed
-KEY_MOUSE;;
-TEXT_MENU_LANG;Idioma:  ;Language:  
-TEXT_MENU_VOL;Volumen:  ;Volume:  
-TEXT_MENU_WIN;Pantalla:  ;Window:  
-TEXT_MENU_PLAYED_TIME;Tiempo jugado: ;Played time: 
-TEXT_TUT_JUMP;Salta con la tecla [wave amp=25 freq=4]ESPACIO[/wave]!;Use [wave amp=25 freq=4]SPACE[/wave] to jump!
-TEXT_TUT_MOUSE;Puedes usar el MOUSE para agarrar y mover objetos. Pruebalo!;You can use your MOUSE to grab objects and move them around. Try it!
-TEXT_TUT_MOVE;Usa  [wave amp=25 freq=4]WASD[/wave] para moverte por ahi!;Use  [wave amp=25 freq=4]WASD[/wave] to move around!
-TEXT_MENU_SAVE_NAME;Partida;Save game
-TEXT_MENU_NEW_SAVE;Nueva partida;New game
-UI_TIME;Tiempo;Time
-UI_TIME_BEST;Mejor tiempo;Best time
-WORD_LEVEL;NIVEL;LEVEL
-LVL_TUT;Tutolandia;Tutorialand
-LVL_01;;
-LVL_02;;
-LVL_03;;
-LVL_04;;
-LVL_05;;
-LVL_06;;
-LVL_07;;
-LVL_08;;
-LVL_09;;
-LVL_10;;
-TEXT_MENU_SAVING_DISCLAIMER;Los datos se guardan automáticamente.\nNo cierres el juego mientras se muestre este simbolo;Data saves automatically.\nPlease never exit the game while this icon is showing
-TEXT_UI_PRESS_TO_CONTINUE; [wave amp=25 freq=4]Pulsa ESPACIO para continuar[/wave]; [wave amp=25 freq=4]Press SPACE to continue[/wave]
-TEXT_TUT_WIN_GRAB;Y ahora tira para arriba!!;Now pull me up!!
-TEXT_TUT_WIN_NOTGRAB; [wave amp=25 freq=4]Agarrate de mi…[/wave]; [wave amp=25 freq=4]Grab me…[/wave]
-BUTTON_SAVE;GUARDAR;SAVE
+﻿key,es,en
+BUTTON_CREDITS,CREDITOS,CREDITS
+BUTTON_DELETE,Eliminar,Delete
+BUTTON_EXIT,SALIR,EXIT
+BUTTON_FULLSCREEN,Completa,Fullscreen 
+BUTTON_OPTIONS,OPCIONES,OPTIONS
+BUTTON_PLAY,JUGAR,PLAY
+BUTTON_SAVE,GUARDAR,SAVE
+BUTTON_SAVE_NEW,NUEVA,NEW
+BUTTON_WINDOW,Ventana,Windowed
+KEY_MOUSE,,
+LVL_01,,
+LVL_02,,
+LVL_03,,
+LVL_04,,
+LVL_05,,
+LVL_06,,
+LVL_07,,
+LVL_08,,
+LVL_09,,
+LVL_10,,
+LVL_TUT,Tutolandia,Tutorialand
+TEXT_CREDITS_CHAR_ART,Arte de personaje por GrafxKid,Character sprites by GrafxKid
+TEXT_CREDITS_CREDIT,por,by
+TEXT_CREDITS_GRAPHICS,\nArte y Graficos\n\n,\nArt and Graphics\n\n
+TEXT_CREDITS_MINI_UI,MiniUI por GrafxKid\n\n\n\n,MiniUI by GrafxKid\n\n\n\n
+TEXT_CREDITS_MUSIC,\nMusica y Efectos\n\n,\nMusic and SFX\n\n
+TEXT_CREDITS_MUSIC_AUTHOR,Musica hecha por Clement Panchout,Music composed by Clement Panchout
+TEXT_CREDITS_PROGRAM,\nProgramacion\n\n,\nProgramming\n\n
+TEXT_CREDITS_SFX,Efectos de sonidos hechos con jsfxr\n\n\n\n,Sound effects made with jsfxr\n\n\n\n
+TEXT_CREDITS_THANKS,\n\n\n\n\n¡Gracias por jugar!\n,\n\n\n\n\nThanks for playing!\n
+TEXT_CREDITS_TILESET,Seasonsal Tileset por GrafxKid,Seasonsal Tileset by GrafxKid
+TEXT_CREDITS_TITLE,Creditos\n\n\n\n,Credits\n\n\n\n
+TEXT_CREDITS_TRANSLATION,\nTraduccion\n,\nTranslation\n\n
+TEXT_CREDITS_TRANSLATION_EN,Traduccion al inglés por Marcos Herrero,English translation by Marcos Herrero
+TEXT_CREDITS_TRANSLATION_ES,Traduccion al español por Marcos Herrero\n\n\n\n,Spanish translation by Marcos Herrero\n\n\n\n
+TEXT_MENU_BEST_POINTS,Mejor puntuacion:,Best score:
+TEXT_MENU_LANG,Idioma:  ,Language:  
+TEXT_MENU_NEW_SAVE,Nueva partida,New game
+TEXT_MENU_PLAYED_TIME,Tiempo jugado: ,Played time: 
+TEXT_MENU_SAVE_NAME,Partida,Save game
+TEXT_MENU_SAVING_DISCLAIMER,Los datos se guardan automaticamente.\nNo cierres el juego mientras se muestre este simbolo,Data saves automatically.\nPlease never exit the game while this icon is showing
+TEXT_MENU_VOL,Volumen:  ,Volume:  
+TEXT_MENU_WIN,Pantalla:  ,Window:  
+TEXT_TUT_JUMP,Salta con la tecla [wave amp=25 freq=4]ESPACIO[/wave]!,Use [wave amp=25 freq=4]SPACE[/wave] to jump!
+TEXT_TUT_MOUSE,Puedes usar el MOUSE para agarrar y mover objetos. Pruebalo!,You can use your MOUSE to grab objects and move them around. Try it!
+TEXT_TUT_MOVE,Usa  [wave amp=25 freq=4]WASD[/wave] para moverte por ahi!,Use  [wave amp=25 freq=4]WASD[/wave] to move around!
+TEXT_TUT_RESET,"Si en algun momento te encuentras con que no puedes seguir de ninguna manera, ¡pulsa R! Esto devolvera todo el nivel a como estaba cuando entraste.","If you ever find yourself stuck with no way of moving forward, press R! This will reset the level to how it was when you entered."
+TEXT_TUT_WIN_GRAB,¡¡Y ahora tira para arriba!!,Now pull me up!!
+TEXT_TUT_WIN_NOTGRAB, [wave amp=25 freq=4]Agarrate de mi…[/wave], [wave amp=25 freq=4]Grab me…[/wave]
+TEXT_UI_LEVEL_BEAT,¡Enhorabuena!,Level beat!
+TEXT_UI_POINTS,Puntuacion,Score
+TEXT_UI_PRESS_TO_CONTINUE, [wave amp=25 freq=4]Pulsa ESPACIO para continuar[/wave], [wave amp=25 freq=4]Press SPACE to continue[/wave]
+TEXT_UI_SCORE_BEAT,¡Nuevo récord!,New highscore!
+TEXT_UI_TIME_BEAT,¡Mejor tiempo!,New best time!
+UI_TIME,Tiempo,Time
+UI_TIME_BEST,Mejor tiempo,Best time
+WORD_LEVEL,NIVEL,LEVEL
